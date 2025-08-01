@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  ocr_streamlit_app:
+    image: ocr-streamlit-gpu:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ocr_streamlit_app
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./images:/app/images       # Input images
+      - ./output:/app/output       # Output CSV
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      STREAMLIT_SERVER_HEADLESS: "true"
+      STREAMLIT_SERVER_PORT: "8501"
+      STREAMLIT_SERVER_ENABLECORS: "false"
+      STREAMLIT_SERVER_ENABLEXsrfProtection: "false"
