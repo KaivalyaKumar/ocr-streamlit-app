@@ -1,3 +1,6 @@
+<img width="1111" height="783" alt="ocr" src="https://github.com/user-attachments/assets/027010dc-7c25-40b5-9a6c-8b456e8b2f04" />
+
+
 OCR Streamlit App
 =================
 
@@ -125,3 +128,4 @@ Free to use, modify, and distribute.
 - Batch processing is optimized for GPU using Hugging Face pipeline.
 - For large datasets (400+ images), GPU mode is 2–5× faster than CPU mode.
 - Pull requests and improvements are welcome!
+
